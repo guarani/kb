@@ -1,0 +1,9 @@
+Some details:
+gandi username: PVS45-GANDI                                 Rackspace username: guarani
+Gandi Domain Registrar
+
+I have my domain name schrottky.com registered on gandi.com. I have hosting on rackspace.com
+To connect the domain to my host, I looked on the rackspace site for their two nameservers, went to the gandi account page
+and in the name server part added the two nameservers an wahlah!
+
+

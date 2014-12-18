@@ -1,0 +1,109 @@
+Disclaimer: This document is a work-in-progress designed to help 
+the author understand the topic and is not intended to provide 
+correct information for public consumption. 
+
+
+
+                The HTTP Protocol
+
+
+
+        --- FAQ ---
+        
+1) What is HTTP?
+   
+   HTTP is what allows you to look at web pages in your web browser.
+   Web browsers are apps used to load web pages from the internet.
+   Web pages, such as BBC or ESPN, are located on web servers normally
+   miles (or thousands of miles away.)
+   HTTP is a protocol (i.e. a set of rules) that describe concisely how 
+   the web browser and the web server communicate to allow the user to
+   load a page.
+   You'll come to understand that HTTP, being a set of rules, is not
+   an app, program, or tangible thing. It is simply a set of rules that
+   both the browser and the server follow in order to perform their 
+   function.
+
+2) Why should I learn about HTTP?
+   
+   Since HTTP works correctly and allows you to surf the web at your
+   heart's content, there is no explicit reason everyone should learn
+   it. However, if you're the curious type, interested in how things
+   work, or you're a programmer, having a knowledge of HTTP will take
+   a little of the mysticism out of the whole 'internet' thing, and how
+   it 'just works'.
+
+3) What else makes up the internet (apart from HTTP)?
+        
+   Many things:
+        * Web browsers (Google Chrome, Safari, Firefox, Internet
+          Explorer, etc.)
+        * Web servers (Apache, etc.)
+        * Client-side scripting languages (a.k.a JavaScript)
+        * Server-side scripting languages (a.k.a PHP, Java, etc.)
+        * TCP/IP (the underlying protocol of the internet, it carries
+          HTTP on its back)
+        * Client-side markup and style 'languages' (HTML and CSS)
+        * The physical server (a dedicated computer) which stores the
+          web page and makes it publicly available.
+
+
+        --- Overview ---
+
+
+When you open your browser and type the following address:
+
+        http://www.abc.com/
+
+your browser uses the HTTP protocol to retrieve the page located at 
+that address. Sounds technical? Well, all your browser actually does
+is send a plain-text file to the server with content similar to the
+following:
+
+     GET / HTTP/1.1
+
+ Most importantly here, this is all the server recieves, there is
+ no other hidden communication taking place.
+
+ The server receives this 'GET / HTTP/1.1' and interprets it in the 
+ following manner.
+
+     GET / HTTP/1.1
+      ^  ^  ^    ^
+      |  |  |    |
+      |  |  |    The HTTP version. These days (circa 2014), version
+      |  |  |    1.1 is in use, however version 2 is on the horizon.
+      |  |  |   
+      |  |  This indicates that we're sending a HTTP request.
+      |  |  
+      |  This indicates we want the web page at the 'root' of web
+      |  site (not https://www.google.com/maps, for example.)
+      |
+      The HTTP verb (can be POST instead, and is sometimes other
+      verbs including PUT and DELETE.)
+
+Let's go over some history here. In the early days of the internet,
+the web was designed to allow documents to be shared. That's right,
+only documents, no buttons, no dynamic content, just plain old
+static documents.
+So if we request http://www.example.com/, the trailing slash
+indicates the that we're requesting what's in the root directory 
+of the server. By default most servers look for a file called 
+index.html located in the requested directory, and return it if
+it's available, otherwise they show a directory listing.
+If we request http://www.example.com/about.html, the server 
+looks for the file about.html in the root directory of the server.
+Likewise, a request to http://www.example.com/contact/ will cause
+the server to look for a 'contact' directory at the location 
+/contact, and if it contains a index.html file, display it, else a
+directory listing is displayed.
+These were the days before server-side scripting. The server's
+role was basically just to map requests to files on disk. These
+days, requests like http://www.example.com/contact can be mapped
+to a script that is executed instead to directly to a file or
+directory. All this is opaque to the HTTPS protocol however,
+whick only cares that a request results in a response.
+
+
+
+

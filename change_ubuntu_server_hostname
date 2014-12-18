@@ -1,0 +1,8 @@
+To change the hostname of my ubuntu server to "paul", I did put this as the contents of /etc/hosts:
+
+127.0.0.1     localhost localhost.localdomain
+50.56.205.139 paul.schrottky.com paul
+
+And this as the contents of /etc/hostname
+
+paul
